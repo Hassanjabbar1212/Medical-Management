@@ -1,0 +1,35 @@
+﻿@model List<ItemViewModel>
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<h2>Available Items</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Mg</th>
+            <th>SinglePrice</th>
+            <th>BoxPrice</th>
+            <th>Action</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.MgName</td> 
+                <td>@item.SinglePrice</td>
+                <td>@item.BoxPrice</td>
+                <td>
+                    <a href="@Url.Action("EditItem", "Item", new { id = item.Id })">Edit</a>
+                </td>
+                <td>
+                    <a href="@Url.Action("Delete", "Item", new { id = item.Id })">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

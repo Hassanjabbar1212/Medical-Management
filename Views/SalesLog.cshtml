@@ -1,0 +1,35 @@
+﻿<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@model SalesLog
+<style>
+    .my-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.control-label {
+    font-weight: bold;
+}
+
+</style>
+<form asp-action="SalesLog" asp-controller="Item" class="my-form">
+    <div class="form-group">
+        <label asp-for="ItemId" class="control-label">Item:</label>
+        <select asp-for="ItemId" asp-items="@ViewBag.Items" class="form-control" required>
+            <option value="">Select an item</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="QuantitySold" class="control-label">Quantity Sold:</label>
+        <input asp-for="QuantitySold" type="number" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label asp-for="IsFullBox" class="control-label">Is Full Box:</label>
+        <input asp-for="IsFullBox" type="checkbox" class="form-check-input">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

@@ -1,0 +1,55 @@
+﻿@model Items
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your View Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+</head>
+<body>
+    <form asp-action="EditItems" asp-controller="Item" method="post">
+        <div class="container">
+            <div class="form-group">
+                <label asp-for=Id>Id</label>
+                <input asp-for=Id type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label asp-for=Name>Name</label>
+                <input asp-for=Name type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="Mg">Select Mg:</label>
+                <input asp-for="Mgs.MgName" class="form-control" disabled value="@ViewBag.MgName">
+            </div>
+            @* <div class="form-group">
+            <label asp-for=Mg for="singlePrice">Mg</label>
+            <input asp-for="Mg" class="form-control"required>
+            </div>*@
+            <div class="form-group">
+                <label asp-for=SinglePrice for="singlePrice">Single Price:</label>
+                <input asp-for=SinglePrice type="text" class="form-control" id="singlePrice" required>
+            </div>
+
+            <div class="form-group">
+                <label asp-for=BoxPrice for="boxPrice">Box Price:</label>
+                <input asp-for="BoxPrice" class="form-control" id="boxPrice" required>
+            </div>
+
+            <div class="form-group">
+                <label asp-for=Quantity>Quantity</label>
+                <input asp-for=Quantity class="form-control" required>
+            </div>
+
+            <!-- Add additional fields as needed -->
+
+            <button type="submit" class="btn btn-green">Update </button>
+        </div>
+    </form>
+    <!-- Add Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

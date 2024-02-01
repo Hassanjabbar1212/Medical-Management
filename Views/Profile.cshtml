@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            min-height: 100vh;
+            background: url('/img/dashboard.jpg') center/cover fixed;
+            /* Replace '/img/dashboard.jpg' with your actual image path */
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+            width: 100%;
+        }
+
+        #sidebar {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            width: 200px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #user-info {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the items horizontally */
+        }
+
+        #user-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
+            #user-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+        #main-content {
+            flex-grow: 1;
+            padding: 20px;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #content-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+            nav ul li {
+                margin-bottom: 15px;
+            }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s ease; /* Add a smooth color transition on hover */
+        }
+
+            nav a:hover {
+                color: #4CAF50; /* Change the color on hover */
+            }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #4CAF50; /* Green color for a medical store theme */
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sidebar">
+            <div id="user-info">
+                <div id="user-image">
+                    <img src="/img/Profile.jpg" alt="User Avatar">
+                </div>
+                <p>Welcome,AffanAnsari</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a asp-action="List" asp-controller="Item"><i class="fas fa-list"></i> View Items</a></li>
+                    <li><a asp-action="Index" asp-controller="Item"><i class="fas fa-box"></i> Box Sales</a></li>
+                    <li><a asp-action="Single" asp-controller="Item"><i class="fas fa-shopping-cart"></i> Single Sales</a></li>
+                    <li><a asp-action="SalesLog" asp-controller="Item"><i class="fas fa-dollar-sign"></i> Sales Log</a></li>
+                    <li><a asp-action="ChangePassword" asp-controller="Home"><i class="fas fa-lock"></i> Change Password</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div id="main-content">
+            <div id="content-container">
+                <h2>Explore Your Medical Store Dashboard</h2>
+                <p>Manage inventory, track sales, and provide excellent customer service. Your health is our priority!</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
